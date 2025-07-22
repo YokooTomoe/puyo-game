@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ぷよぷよゲーム</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1 {
+            color: #f39c12;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .game-container {
+            background-color: #34495e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .controls h3 {
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .controls ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .controls li {
+            margin: 5px 0;
+            padding: 5px;
+            background-color: #2c3e50;
+            border-radius: 5px;
+        }
+        
+        .loading {
+            text-align: center;
+            color: #f39c12;
+            font-size: 18px;
+        }
+        
+        #gameCanvas {
+            border: 2px solid #f39c12;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎮 ぷよぷよゲーム</h1>
+    
+    <div class="game-container">
+        <div id="loading" class="loading">
+            ゲームを読み込み中...
+        </div>
+        
+        <canvas id="gameCanvas" width="800" height="600" style="display: none;"></canvas>
+        
+        <div class="controls">
+            <h3>操作方法</h3>
+            <ul>
+                <li>←→: ぷよを左右に移動</li>
+                <li>↓: ぷよを高速落下</li>
+                <li>スペース: ぷよを回転</li>
+                <li>Q: ゲーム終了</li>
+                <li>R: リスタート（ゲームオーバー時）</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // ゲーム読み込み完了時の処理
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            const canvas = document.getElementById('gameCanvas');
+            
+            // 少し遅延してからキャンバスを表示
+            setTimeout(() => {
+                loading.style.display = 'none';
+                canvas.style.display = 'block';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+    "name": "ぷよぷよゲーム開発環境",
+    "image": "mcr.microsoft.com/devcontainers/python:3.11",
+    "features": {
+        "ghcr.io/devcontainers/features/desktop-lite:1": {
+            "password": "vscode",
+            "webPort": 6080,
+            "vncPort": 5901
+        }
+    },
+    "forwardPorts": [6080, 5901],
+    "postCreateCommand": "pip install -r requirements.txt",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.pylint"
+            ]
+        }
+    },
+    "remoteUser": "vscode"
+}
