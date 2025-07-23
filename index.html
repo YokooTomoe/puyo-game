@@ -14,6 +14,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow-x: hidden; /* 横スクロール無効 */
+            /* 矢印キーでのスクロールを完全に無効化 */
         }
         
         h1 {
@@ -60,6 +62,18 @@
         #gameCanvas {
             border: 2px solid #f39c12;
             border-radius: 5px;
+            outline: none; /* フォーカス時の枠線を無効化 */
+        }
+        
+        /* 全体的にキーボードスクロールを無効化 */
+        html, body {
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        /* ゲーム中はスクロールバーを非表示 */
+        body:focus-within {
+            overflow: hidden;
         }
     </style>
 </head>
@@ -85,18 +99,6 @@
         </div>
     </div>
 
-    <script>
-        // ゲーム読み込み完了時の処理
-        window.addEventListener('load', function() {
-            const loading = document.getElementById('loading');
-            const canvas = document.getElementById('gameCanvas');
-            
-            // 少し遅延してからキャンバスを表示
-            setTimeout(() => {
-                loading.style.display = 'none';
-                canvas.style.display = 'block';
-            }, 2000);
-        });
-    </script>
+    <script src="game.js"></script>
 </body>
 </html>
